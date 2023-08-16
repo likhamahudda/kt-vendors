@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Facebook Login JavaScript Example</title>
+<meta charset="UTF-8">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+<script async defer crossorigin="anonymous" src="https://connect.facebook.net/en_US/sdk.js"></script>
+
+</head>
+<body>
+    <a href="https://www.facebook.com/v15.0/dialog/oauth?app_id=2916363798659189&auth_type=&cbt=1671610839917&channel_url=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df3e3e55866a18e%26domain%3Drush-food.orbitnapp.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Frush-food.orbitnapp.com%252Ff26db6512fd1218%26relation%3Dopener&client_id=2916363798659189&config_id=&display=popup&domain=rush-food.orbitnapp.com&e2e=%7B%7D&fallback_redirect_uri=https%3A%2F%2Frush-food.orbitnapp.com%2Ffacebook.html&force_confirmation=false&id=f15d31aef66c28&locale=en_US&logger_id=cbd5a26e-4380-4faa-8ae0-ad90665665d9&messenger_page_id=&origin=1&plugin_prepare=true&redirect_uri=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df361edd51b0a5e%26domain%3Drush-food.orbitnapp.com%26is_canvas%3Dfalse%26origin%3Dhttps%253A%252F%252Frush-food.orbitnapp.com%252Ff26db6512fd1218%26relation%3Dopener.parent%26frame%3Df15d31aef66c28&ref=LoginButton&reset_messenger_state=false&response_type=signed_request%2Ctoken%2Cgraph_domain&scope=public_profile%2Cemail&sdk=joey&size=%7B%22width%22%3A600%2C%22height%22%3A679%7D&url=dialog%2Foauth&version=v15.0">LOGIN!</a>
+ <script>
+
+var APPID = "2916363798659189"
+var uri = encodeURI('https://rush-food.orbitnapp.com/greeting');
+
+
+window.fbAsyncInit = function() {
+    FB.init({
+        appId      : '2916363798659189',
+        status     : true,
+        cookie     : true,
+        xfbml      : true,
+        version    : 'v15.0'  
+    });
+  $(document).trigger('fbload');  //  <---- THIS RIGHT HERE TRIGGERS A CUSTOM EVENT CALLED 'fbload'
+};
+
+//MEANWHILE IN $(document).ready()
+$(document).on(
+    'fbload',  //  <---- HERE'S OUR CUSTOM EVENT BEING LISTENED FOR
+    function(){
+        //some code that requires the FB object
+        //such as...
+        FB.getLoginStatus(function(res){
+            if( res.status == "connected" ){
+                FB.api('/me', function(fbUser) {
+                    console.log("Open the pod bay doors, " + fbUser.name + ".");
+                });
+            }
+        });
+
+    }
+);
+
+
+ 
+
+// var redirect_uri = window.location.href.replace(window.location.hash,'');
+
+// window.location.href = "https://www.facebook.com/v15.0/dialog/oauth?"
+//        +"scope="+encodeURIComponent("email")
+//        +"&client_id="+encodeURIComponent('2916363798659189')
+//        +"&redirect_uri="+encodeURIComponent(redirect_uri);
+
+//window.location.href = "https://www.facebook.com/v15.0/dialog/oauth?client_id=2916363798659189&redirect_uri=https://rush-food.orbitnapp.com/greeting&scope=email, public_profile";
+ //window.location.href = "https://www.facebook.com/v15.0/dialog/oauth?app_id=2916363798659189&auth_type=&cbt=1671603784579&channel_url=https://staticxx.facebook.com/x/connect/xd_arbiter/?version=46#cb=f2607aea58a295c&domain=rush-food.orbitnapp.com&is_canvas=false&origin=https%3A%2F%2Frush-food.orbitnapp.com%2Ff22cd592c87bb6&relation=opener&client_id=2916363798659189&config_id=&display=popup&domain=rush-food.orbitnapp.com&e2e={}&fallback_redirect_uri=https://rush-food.orbitnapp.com/facebook.html&force_confirmation=false&id=f2bc4f4c723b6ec&locale=en_US&logger_id=277b3794-ea79-4be5-b3cb-2ab17be8732d&messenger_page_id=&origin=1&plugin_prepare=true&redirect_uri=https://rush-food.orbitnapp.com/greeting&domain=rush-food.orbitnapp.com&is_canvas=false&origin=https%3A%2F%2Frush-food.orbitnapp.com%2Ff22cd592c87bb6&relation=opener.parent&frame=f2bc4f4c723b6ec&ref=LoginButton&reset_messenger_state=false&response_type=signed_request,token,graph_domain&scope=public_profile,email&sdk=joey&&url=dialog/oauth&version=v15.0";
+
+//https://www.facebook.com/dialog/oauth?scope=email&state=455-0e479fb0be14488eb311eb455c21d158&redirect_uri=https://oneclicksociallogin.devcloudsoftware.com/user/facebookloginnotifier/&client_id=1667514393504118
+
+
+  function statusChangeCallback(response) {  // Called with the results from FB.getLoginStatus().
+    console.log('statusChangeCallback');
+    console.log(response);                   // The current login status of the person.
+    if (response.status === 'connected') {   // Logged into your webpage and Facebook.
+      testAPI();  
+    } else {                                 // Not logged into your webpage or we are unable to tell.
+      document.getElementById('status').innerHTML = 'Please log ' +
+        'into this webpage.';
+    }
+  }
+
+
+  function checkLoginState() {               // Called when a person is finished with the Login Button.
+    FB.getLoginStatus(function(response) {   // See the onlogin handler
+      statusChangeCallback(response);
+    });
+  }
+
+
+  window.fbAsyncInit = function() {
+    FB.init({
+      appId      : '2916363798659189',
+      cookie     : true,                     // Enable cookies to allow the server to access the session.
+      xfbml      : true,                     // Parse social plugins on this webpage.
+      version    : 'v15.0'           // Use this Graph API version for this call.
+    });
+    FB.AppEvents.logPageView();
+
+
+    FB.getLoginStatus(function(response) {   // Called after the JS SDK has been initialized.
+      statusChangeCallback(response);        // Returns the login status.
+    });
+  };
+ 
+  function testAPI() {                      // Testing Graph API after login.  See statusChangeCallback() for when this call is made.
+    console.log('Welcome!  Fetching your information.... ');
+    FB.api('/me', function(response) {
+      console.log('Successful login for: ' + response.name);
+      document.getElementById('status').innerHTML =
+        'Thanks for logging in, ' + response.name + '!';
+    });
+  }
+
+</script>
+
+
+<!-- The JS SDK Login Button -->
+
+<fb:login-button scope="public_profile,email" onlogin="checkLoginState();">
+</fb:login-button>
+
+<div id="status">
+</div>
+
+<!-- Load the JS SDK asynchronously -->
+</body>
+</html>

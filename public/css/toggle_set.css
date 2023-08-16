@@ -1,0 +1,201 @@
+.mt-toggle input[type="checkbox"] {
+    display: none;
+    visibility: hidden; }
+  .mt-toggle .switcher {
+    display: inline-block;
+    border-radius: 100px;
+    width: 35px;
+    height: 19px;
+    background-color: #ccc;
+    position: relative;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    vertical-align: middle;
+    cursor: pointer; }
+    .mt-toggle .switcher:before {
+      content: "";
+      display: block;
+      width: 14px;
+      height:14px;
+      background-color: #fff;
+      border-radius: 50%;
+      margin-top: 2.1px;
+      position: absolute;
+      top: 0;
+      left: 2px;
+      -webkit-box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      box-sizing: border-box;
+      margin-right: 0;
+      -webkit-transition: all 0.2s;
+      -moz-transition: all 0.2s;
+      -ms-transition: all 0.2s;
+      -o-transition: all 0.2s;
+      transition: all 0.2s; }
+    .mt-toggle .switcher:active:before {
+      box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 0 0 10px rgba(63, 81, 181, 0.3);
+      transition: all, 0.1s; }
+  .mt-toggle .label {
+    font-family: "Roboto", sans-serif;
+    cursor: pointer;
+    vertical-align: middle;
+    margin: 0 5px; }
+  .mt-toggle input[type="checkbox"]:checked + .switcher {
+    background-color: #008062; }
+    .mt-toggle input[type="checkbox"]:checked + .switcher:before {
+      left: 100%;
+      margin-left: -17px;
+      background-color: #ffffff; }
+  .mt-toggle [disabled]:not([disabled="false"]) + .switcher {
+    background: #ccc !important; }
+    .mt-toggle [disabled]:not([disabled="false"]) + .switcher:active:before {
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2) !important; }
+    .mt-toggle [disabled]:not([disabled="false"]) + .switcher:before {
+      background-color: #e2e2e2 !important;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2) !important; }
+  .mt-toggle.mt-toggle-large .switcher {
+    width: 52px;
+    height: 22px; }
+    .mt-toggle.mt-toggle-large .switcher:before {
+      width: 30px;
+      height: 30px;
+      margin-top: -4px; }
+  .mt-toggle.mt-toggle-large .label {
+    font-size: 18px; }
+  .mt-toggle.mt-toggle-large input[type="checkbox"]:checked + .switcher:before {
+    margin-left: -30px; }
+  .mt-toggle.mt-toggle-xlarge .switcher {
+    width: 87px;
+    height: 37px; }
+    .mt-toggle.mt-toggle-xlarge .switcher:before {
+      width: 50px;
+      height: 50px;
+      margin-top: -6px; }
+  .mt-toggle.mt-toggle-xlarge .label {
+    font-size: 24px; }
+  .mt-toggle.mt-toggle-xlarge input[type="checkbox"]:checked + .switcher:before {
+    margin-left: -50px; }
+  .mt-toggle.mt-toggle-black input[type="checkbox"]:checked + .switcher {
+    background-color: #676767; }
+    .mt-toggle.mt-toggle-black input[type="checkbox"]:checked + .switcher:before {
+      background-color: #343434; }
+  .mt-toggle.mt-toggle-black .switcher:active:before {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 0 0 10px rgba(52, 52, 52, 0.3); }
+  .mt-toggle.mt-toggle-red input[type="checkbox"]:checked + .switcher {
+    background-color: #ffcece; }
+    .mt-toggle.mt-toggle-red input[type="checkbox"]:checked + .switcher:before {
+      background-color: #ff6868; }
+  .mt-toggle.mt-toggle-red .switcher:active:before {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 0 0 10px rgba(255, 104, 104, 0.3); }
+  .mt-toggle.mt-toggle-green input[type="checkbox"]:checked + .switcher {
+    background-color: #77e4c0; }
+    .mt-toggle.mt-toggle-green input[type="checkbox"]:checked + .switcher:before {
+      background-color: #29cc97; }
+  .mt-toggle.mt-toggle-green .switcher:active:before {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 0 0 10px rgba(41, 204, 151, 0.3); }
+  .mt-toggle.mt-toggle-orange input[type="checkbox"]:checked + .switcher {
+    background-color: #ffc166; }
+    .mt-toggle.mt-toggle-orange input[type="checkbox"]:checked + .switcher:before {
+      background-color: #ff9800; }
+  .mt-toggle.mt-toggle-orange .switcher:active:before {
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.6), 0 0 0 10px rgba(255, 152, 0, 0.3); }
+
+
+  .mt-toggle.ios .switcher {
+    width: 45px;
+    height: 24px;
+    background-color: #fff;
+    border: 1px solid #d3d3d5;
+    box-shadow: 0 0 0 0 #4bd964 inset;
+    -webkit-transition: all 0.4s ease;
+    -moz-transition: all 0.4s ease;
+    -ms-transition: all 0.4s ease;
+    -o-transition: all 0.4s ease;
+    transition: all 0.4s ease; }
+    .mt-toggle.ios .switcher:before {
+      width: 24px;
+      height: 24px;
+      background-color: #fff;
+      box-shadow: 0 1px 2px rgba(0, 0, 0, 0.2);
+      margin-top: 0;
+      top: -1px;
+      right: -1px;
+      margin-right: 0;
+      border: 1px solid #d3d3d5;
+      -webkit-transition: all 0.4s ease;
+      -moz-transition: all 0.4s ease;
+      -ms-transition: all 0.4s ease;
+      -o-transition: all 0.4s ease;
+      transition: all 0.4s ease; }
+  .mt-toggle.ios input[type="checkbox"]:checked + .switcher {
+    background-color: #fff;
+    box-shadow: 0 0 0 20px #4bd964 inset; }
+    .mt-toggle.ios input[type="checkbox"]:checked + .switcher:before {
+      right: 100%;
+      margin-right: -22px;
+      background-color: #fff; }
+  .mt-toggle.ios [disabled]:not([disabled="false"]) + .switcher {
+    background: #ccc !important; }
+    .mt-toggle.ios [disabled]:not([disabled="false"]) + .switcher:active:before {
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2) !important; }
+    .mt-toggle.ios [disabled]:not([disabled="false"]) + .switcher:before {
+      background-color: #e2e2e2 !important;
+      box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2) !important; }
+  .mt-toggle.ios.mt-toggle-large .switcher {
+    width: 62px;
+    height: 34px; }
+    .mt-toggle.ios.mt-toggle-large .switcher:before {
+      width: 34px;
+      height: 34px; }
+  .mt-toggle.ios.mt-toggle-large .label {
+    font-size: 18px; }
+  .mt-toggle.ios.mt-toggle-large input[type="checkbox"]:checked + .switcher:before {
+    margin-right: -30px; }
+  .mt-toggle.ios.mt-toggle-xlarge .switcher {
+    width: 80px;
+    height: 40px; }
+    .mt-toggle.ios.mt-toggle-xlarge .switcher:before {
+      width: 40px;
+      height: 40px;
+      margin-top: 0; }
+  .mt-toggle.ios.mt-toggle-xlarge .label {
+    font-size: 24px; }
+  .mt-toggle.ios.mt-toggle-xlarge input[type="checkbox"]:checked + .switcher:before {
+    margin-right: -39px; }
+  .mt-toggle.ios.mt-toggle-black .switcher {
+    box-shadow: 0 0 0 0 #343434 inset; }
+  .mt-toggle.ios.mt-toggle-black input[type="checkbox"]:checked + .switcher {
+    box-shadow: 0 0 0 20px #343434 inset;
+    background: #ffffff; }
+    .mt-toggle.ios.mt-toggle-black input[type="checkbox"]:checked + .switcher:before {
+      background-color: #fff; }
+  .mt-toggle.ios.mt-toggle-black .switcher:active:before {
+    box-shadow: none; }
+  .mt-toggle.ios.mt-toggle-red .switcher {
+    box-shadow: 0 0 0 0 #ff6868 inset; }
+  .mt-toggle.ios.mt-toggle-red input[type="checkbox"]:checked + .switcher {
+    box-shadow: 0 0 0 20px #ff6868 inset;
+    background: #ffffff; }
+    .mt-toggle.ios.mt-toggle-red input[type="checkbox"]:checked + .switcher:before {
+      background-color: #fff; }
+  .mt-toggle.ios.mt-toggle-red .switcher:active:before {
+    box-shadow: none; }
+  .mt-toggle.ios.mt-toggle-green .switcher {
+    box-shadow: 0 0 0 0 #29cc97 inset; }
+  .mt-toggle.ios.mt-toggle-green input[type="checkbox"]:checked + .switcher {
+    box-shadow: 0 0 0 20px #29cc97 inset;
+    background: #ffffff; }
+    .mt-toggle.ios.mt-toggle-green input[type="checkbox"]:checked + .switcher:before {
+      background-color: #fff; }
+  .mt-toggle.ios.mt-toggle-green .switcher:active:before {
+    box-shadow: none; }
+  .mt-toggle.ios.mt-toggle-orange .switcher {
+    box-shadow: 0 0 0 0 #ff9800 inset; }
+  .mt-toggle.ios.mt-toggle-orange input[type="checkbox"]:checked + .switcher {
+    box-shadow: 0 0 0 20px #ff9800 inset;
+    background: #ffffff; }
+    .mt-toggle.ios.mt-toggle-orange input[type="checkbox"]:checked + .switcher:before {
+      background-color: #fff; }
+  .mt-toggle.ios.mt-toggle-orange .switcher:active:before {
+    box-shadow: none; }
